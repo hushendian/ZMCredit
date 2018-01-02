@@ -122,11 +122,12 @@ public class RoundIndicatorView extends View {
         canvas.save();
         float angle = (float) sweepAngle / 30;
         Log.d("RoundIndicatorView", "drawScale: " + (-270 + startAngle));
-        canvas.rotate(-270 + startAngle);
+        canvas.rotate(-270 + startAngle);//扭转画布来实现画线
         for (int i = 0; i <= 30; i++) {
             if (i % 6 == 0) {
                 paint.setStrokeWidth(dp2px(2));
                 paint.setAlpha(0x70);
+                //没想明白，不知道为啥是线宽的1/2，如果是线宽，则线出去了
                 canvas.drawLine(0, -radius - sweepInWidth / 2, 0, -radius + sweepInWidth / 2
                         , paint);
                 drawText(canvas, i * maxNum / 30 + "", paint);
