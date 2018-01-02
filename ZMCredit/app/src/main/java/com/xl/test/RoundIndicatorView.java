@@ -237,6 +237,7 @@ public class RoundIndicatorView extends View {
 
     public void setCurrentNumAnim(int num) {
         float duration = (float) Math.abs(num - currentNum) / maxNum * 1500 + 500;
+		 //此处内部调用了此处内部调用了setCurrentNum方法
         ObjectAnimator animator = ObjectAnimator.ofInt(this, "currentNum", num);
         animator.setDuration((long) Math.min(duration, 2000));
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
